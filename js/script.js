@@ -2,8 +2,11 @@
 var numeriEstratti = [];//array vuoto
 var numeroSostituto;
 var richiestaLivello;
-
-
+// BONUS: (da fare solo se funziona tutto il resto)
+// all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
+// con difficoltà 0 => tra 1 e 100
+// con difficoltà 1 => tra 1 e 80
+// con difficoltà 2 => tra 1 e 50
 do {
   richiestaLivello = parseInt(prompt("scegli il livello: soft = 0, medio = 1, hard = 2"));
 
@@ -67,17 +70,15 @@ do {
 // o raggiunge il numero massimo possibile di numeri consentiti.
 
 } while (!numeriEstratti.includes(numeroUtente) && numeroVolte < (richiestaLivello-16));
+
+if ((richiestaLivello- 16 - numeroVolte) == 0) {
+console.log ("HAI VINTO!")
+}else {
+  console.log (numeroUtente + " il numero è ILLEGAL, hai perso");
+}
 // Al termine della partita il software deve comunicare il punteggio,
 // cioè il numero di volte che l’utente ha inserito un numero consentito.
   console.log (arrayUtente);
-  console.log (numeroUtente + " il numero è ILLEGAL, hai perso");
   console.log ("totale numeri inseriti: " + numeroVolte);
   console.log("tentativi rimasti: " + (richiestaLivello- 16 - numeroVolte));
 }
-
-
-// BONUS: (da fare solo se funziona tutto il resto)
-// all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
-// con difficoltà 0 => tra 1 e 100
-// con difficoltà 1 => tra 1 e 80
-// con difficoltà 2 => tra 1 e 50
