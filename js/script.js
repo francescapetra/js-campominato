@@ -43,11 +43,12 @@ console.log("Numeri BOMBA: " + arrayEstratti);
 // L’utente non può inserire più volte lo stesso numero.
 // Se il numero è presente nella lista dei numeri generati, la partita termina,
 // altrimenti si continua chiedendo all’utente un altro numero.
-var arrayUtente = [];
+
 var numeroInserito = inserimentoNumUtente (min,richiestaLivello);
 
 function inserimentoNumUtente (min,richiestaLivello){
 
+  var arrayUtente = [];
   var nuovoNumeroUtente;
   var numeroVolte = 0;
 
@@ -67,6 +68,7 @@ function inserimentoNumUtente (min,richiestaLivello){
   // La partita termina quando il giocatore inserisce un numero “vietato”
   // o raggiunge il numero massimo possibile di numeri consentiti.
   } while (!arrayEstratti.includes(numeroUtente) && numeroVolte < (richiestaLivello-16));
+  console.log ("Numeri giocati : " + arrayUtente);
   return [numeroUtente, numeroVolte];
 }
 // condizione slegata
@@ -78,6 +80,5 @@ console.log ("HAI VINTO!")
   console.log ("ATTENZIONE il numero " + numeroInserito[0] + " è un numero BOMBA, hai perso.");
 }
   console.log ("Totale numeri inseriti: " + numeroInserito[1] );
-  console.log ("Numeri giocati : " + arrayUtente);
   console.log ("Totale punti : " + (numeroInserito[1] - 1));
   console.log("Punti mancanti alla vittoria: " + (richiestaLivello- 16 - numeroInserito[1] + 1));
