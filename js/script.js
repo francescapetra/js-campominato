@@ -23,13 +23,13 @@ do {
 // finchè i numeri non sono diversi da essi stessi
 var arrayEstratti = randomGeneratore (min,richiestaLivello);
 
-function randomGeneratore(min, richiestaLivello){
+function randomGeneratore(min, max){
 
   var numeriEstratti = [];//array vuoto metti dentro se no non funzia
   var numeroSostituto;
 
   while (numeriEstratti.length < 16) {
-    var numeriCpu = Math.floor(Math.random() * richiestaLivello) + 1;
+    var numeriCpu = Math.floor(Math.random() * max) + 1;
 
      if (numeriEstratti.includes(numeriCpu) == false){
       numeriEstratti.push(numeriCpu);
@@ -46,7 +46,7 @@ console.log("Numeri BOMBA: " + arrayEstratti);
 
 var numeroInserito = inserimentoNumUtente (min,richiestaLivello);
 
-function inserimentoNumUtente (min,richiestaLivello){
+function inserimentoNumUtente (min,max){
 
   var arrayUtente = [];
   var nuovoNumeroUtente;
@@ -56,19 +56,19 @@ function inserimentoNumUtente (min,richiestaLivello){
     numeroUtente = parseInt(prompt("Inserire numero"));
 
     if (!arrayUtente.includes(numeroUtente)) {
-      if ((numeroUtente >=min) && (numeroUtente <=richiestaLivello)) {
+      if ((numeroUtente >=min) && (numeroUtente <=max)) {
             arrayUtente.push(numeroUtente);
             numeroVolte+= 1;
         }else {
-          alert("Il numero deve essere compreso tra " + min + " e " + richiestaLivello);
+          alert("Il numero deve essere compreso tra " + min + " e " + max);
         }
       }else {
         alert("Il numero è già stato inserito, inseriscine uno nuovo");
       }
   // La partita termina quando il giocatore inserisce un numero “vietato”
   // o raggiunge il numero massimo possibile di numeri consentiti.
-  } while (!arrayEstratti.includes(numeroUtente) && numeroVolte < (richiestaLivello-16));
-  console.log ("Numeri giocati : " + arrayUtente);
+  } while (!arrayEstratti.includes(numeroUtente) && numeroVolte < (max-16));
+  console.log ("Sequenza numeri giocati : " + arrayUtente);
   return [numeroUtente, numeroVolte];
 }
 // condizione slegata
