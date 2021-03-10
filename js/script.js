@@ -43,9 +43,8 @@ console.log("Numeri BOMBA: " + arrayEstratti);
 // L’utente non può inserire più volte lo stesso numero.
 // Se il numero è presente nella lista dei numeri generati, la partita termina,
 // altrimenti si continua chiedendo all’utente un altro numero.
-
-var numeroInserito = inserimentoNumUtente (min,richiestaLivello);
-
+var returnArray = inserimentoNumUtente (min,richiestaLivello);
+// questo numeroInserito è il mio return e ora si comporta come array e quindi lo cito con 1 e 0
 function inserimentoNumUtente (min,max){
 
   var arrayUtente = [];
@@ -74,11 +73,11 @@ function inserimentoNumUtente (min,max){
 // condizione slegata
 // Al termine della partita il software deve comunicare il punteggio,
 // cioè il numero di volte che l’utente ha inserito un numero consentito.
-if ((richiestaLivello- 16 - numeroInserito[1]) == 0) {
+if ((richiestaLivello- 16 - returnArray[1]) == 0) {
 console.log ("HAI VINTO!")
 }else {
-  console.log ("ATTENZIONE il numero " + numeroInserito[0] + " è un numero BOMBA, hai perso.");
+  console.log ("ATTENZIONE il numero " + returnArray[0] + " è un numero BOMBA, hai perso.");
 }
-  console.log ("Totale numeri inseriti: " + numeroInserito[1] );
-  console.log ("Totale punti : " + (numeroInserito[1] - 1));
-  console.log("Punti mancanti alla vittoria: " + (richiestaLivello- 16 - numeroInserito[1] + 1));
+  console.log ("Totale numeri inseriti: " + returnArray[1] );
+  console.log ("Totale punti : " + (returnArray[1] - 1));
+  console.log("Punti mancanti alla vittoria: " + (richiestaLivello- 16 - returnArray[1] + 1));
